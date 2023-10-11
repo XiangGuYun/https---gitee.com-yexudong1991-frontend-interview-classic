@@ -1,0 +1,61 @@
+虚拟 DOM (Virtual DOM) 是一种编程概念，在这种概念中，一个 UI 的表示形式被保留在内存中，并通过一个叫做 "渲染引擎" 的库与真实的 DOM 进行同步。这个过程叫做 "协调"。当应用的状态发生变化时，虚拟 DOM 提供了一个新的 UI 表示形式，这个表示形式可以与前一个进行比较，以有效地更新真实 DOM。
+
+以下是虚拟 DOM 的主要特点和工作原理：
+
+1. **轻量级**：虚拟 DOM 是真实 DOM 的轻量级表示。它只是真实 DOM 的某些属性和特性的简单对象表示。
+
+2. **不直接更改屏幕**：与直接操作真实 DOM 不同，当数据发生变化时，虚拟 DOM 创建一个新的虚拟树来表示 UI 的更新状态。这个新树与旧树进行比较，来确定实际进行了哪些更改。
+
+3. **Diffing 算法**：这是虚拟 DOM 最核心的部分。当新的虚拟树与旧树进行比较时，它使用一个高效的算法来确定哪些部分需要更新。这个比较过程称为 "差异化"。
+
+4. **批量更新**：一旦确定了所有的变化，虚拟 DOM 会在真实 DOM 中一次性地进行所有的更新。这大大减少了直接操作 DOM 所引起的性能开销。
+
+5. **提高性能**：由于直接操作 DOM 是昂贵的，特别是当涉及到页面布局和重绘时，虚拟 DOM 可以减少这些操作的次数，从而提高性能。
+
+6. **跨平台**：虚拟 DOM 不仅仅限于浏览器的 DOM。它的概念可以应用于其他类型的渲染，使得它有可能在多种平台上工作，如React Native在移动应用中的使用。
+
+框架如 React 和 Vue.js 使用虚拟 DOM 来提高应用的性能和响应性。这种方法使得开发者可以编写声明式 UI 组件，而不用担心性能问题，因为框架会处理最有效的更新方式。
+
+***
+
+VirtualDOM（虚拟DOM）有三个主要方法：
+
+createElement() 用于创建虚拟DOM树。
+diff() 用于计算新旧虚拟DOM树的差异。
+patch() 用于将这些差异应用到真实的DOM上。
+DiffAlgorithm（差异算法）中的 computeDiff() 用于计算两棵虚拟DOM树之间的差异。
+
+RealDOM 通过 updateElement() 方法根据计算出的差异更新真实的DOM。
+
+在这个流程中：
+
+用户交互或数据变更触发一个新的虚拟DOM树的创建。
+差异算法计算旧的和新的虚拟DOM树之间的差异。
+这些更改被应用到实际的DOM上。
+
+```puml
+@startuml
+
+class "VirtualDOM" as VD {
+  +createElement()
+  +diff()
+  +patch()
+}
+
+class "RealDOM" as RD {
+  +updateElement()
+}
+
+class "DiffAlgorithm" as DA {
+  +computeDiff()
+}
+
+VD --|> DA : diffs >
+DA --|> RD : applyDiff >
+
+note right of VD : 用户交互或数据\n变更触发创建一个\n新的虚拟DOM树。
+note bottom of DA : 差异算法计算\n旧的和新的虚拟DOM树\n之间的差异。
+note bottom of RD : 更改被应用到\n实际的DOM上。
+
+@enduml
+```

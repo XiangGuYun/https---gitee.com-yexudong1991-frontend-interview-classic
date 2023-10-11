@@ -22,7 +22,7 @@
   - **特性**：`watch` 可以观察一个特定的值的变化，并在值改变时触发一个回调函数处理副作用。
 
   示例：
-  ```html
+  ```vue
   watch: {
     firstName: function (newVal, oldVal) {
       console.log('First Name changed from', oldVal, 'to', newVal);
