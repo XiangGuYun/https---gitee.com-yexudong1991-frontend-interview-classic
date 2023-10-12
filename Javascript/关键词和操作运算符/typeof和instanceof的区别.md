@@ -1,3 +1,5 @@
+# typeof和instanceof的区别
+
 `typeof` 和 `instanceof` 是 JavaScript 中用于判断一个变量的类型或构造函数的两个运算符。虽然它们的用途相近，但它们的应用场景和返回信息有着本质的区别。
 
 ### `typeof` 运算符
