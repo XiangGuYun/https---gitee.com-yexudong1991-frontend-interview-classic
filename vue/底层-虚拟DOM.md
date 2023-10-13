@@ -32,30 +32,3 @@ RealDOM 通过 updateElement() 方法根据计算出的差异更新真实的DOM�
 用户交互或数据变更触发一个新的虚拟DOM树的创建。
 差异算法计算旧的和新的虚拟DOM树之间的差异。
 这些更改被应用到实际的DOM上。
-
-```puml
-@startuml
-
-class "VirtualDOM" as VD {
-  +createElement()
-  +diff()
-  +patch()
-}
-
-class "RealDOM" as RD {
-  +updateElement()
-}
-
-class "DiffAlgorithm" as DA {
-  +computeDiff()
-}
-
-VD --|> DA : diffs >
-DA --|> RD : applyDiff >
-
-note right of VD : 用户交互或数据\n变更触发创建一个\n新的虚拟DOM树。
-note bottom of DA : 差异算法计算\n旧的和新的虚拟DOM树\n之间的差异。
-note bottom of RD : 更改被应用到\n实际的DOM上。
-
-@enduml
-```
