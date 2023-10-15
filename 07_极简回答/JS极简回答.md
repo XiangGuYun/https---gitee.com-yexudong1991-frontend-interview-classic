@@ -5,9 +5,10 @@
 ### 事件冒泡
 
 <details>
-  <summary></summary>
-  事件冒泡是事件从触发元素向上级元素传递的过程。阻止方法：`event.stopPropagation()` 或 `@click.stop`。
+  <summary>事件冒泡是事件从?传递的过程。阻止方法：`event.?()` 或 `@click.?`。</summary>
+  触发元素向上级元素 stopPropagation stop
 </details>
+
 
 ### 事件委托
 

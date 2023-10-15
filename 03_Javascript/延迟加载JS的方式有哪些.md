@@ -1,5 +1,9 @@
 延迟加载（或称懒加载）JavaScript的目标是优化页面加载时间和用户体验，通过推迟非关键JS资源的加载来加速页面的初始渲染。下面是一些在网页开发中常用的延迟加载JavaScript的策略：
 
+<div style="border: 1px solid;border-radius:5px;padding:5px;font-size:0.9rem;font-style:italic">
+记忆：ad属性、创建s标签、事件触发、交集观察者、ajax、Webpack分割
+</div>
+
 ### 1. 使用`async`和`defer`属性
 
 在`<script>`标签中使用`async`或`defer`属性可以使得脚本异步加载。
